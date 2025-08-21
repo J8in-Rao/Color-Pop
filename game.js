@@ -37,6 +37,11 @@ function buildGrid() {
     const cell = document.createElement('div');
     cell.className = 'cell';
     cell.addEventListener('click', handleClick);
+    // Add touch event for mobile devices
+    cell.addEventListener('touchstart', function(e) {
+      e.preventDefault(); // Prevent default touch behavior
+      handleClick(e);
+    });
     grid.appendChild(cell);
   }
 }

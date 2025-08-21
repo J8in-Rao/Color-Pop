@@ -44,6 +44,80 @@ button {
   border-radius: 6px;
   cursor: pointer;
   transition: transform .1s;
+  /* Add touch-specific styles */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .cell:hover { transform: scale(1.08); }
+
+/* Media Queries for Mobile Devices */
+@media screen and (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+  
+  #grid {
+    grid-template-columns: repeat(4, 60px);
+    grid-gap: 3px;
+  }
+  
+  .cell {
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+  
+  #ui {
+    margin-bottom: 10px;
+  }
+  
+  #ui p {
+    font-size: 0.9rem;
+    margin: 3px 0;
+  }
+  
+  button {
+    padding: 5px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  #grid {
+    grid-template-columns: repeat(4, 50px);
+    grid-gap: 2px;
+  }
+  
+  .cell {
+    width: 50px;
+    height: 50px;
+  }
+  
+  h1 {
+    font-size: 1.3rem;
+  }
+  
+  #ui p {
+    font-size: 0.8rem;
+  }
+  
+  button {
+    padding: 4px 10px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Add active state for touch devices */
+.cell:active {
+  transform: scale(0.95);
+}
